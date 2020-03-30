@@ -41,6 +41,10 @@ for subj in os.listdir(NIFTI_PATH):
 # next download FSL flirt, in this case from my google drive 
 !wget --no-check-certificate 'https://drive.google.com/open?id=165SRVxg9aee9sEYsNL4YeY4iPBTsnH8l' -O ./flirt
 
+# the 152 Linear ICBM Average Brain (ICBM152) Stereotaxic Registration Model is downloaded from http://nist.mni.mcgill.ca/?p=798
+
+
+
            # below is unchecked
       
     T2_file =  os.path.join (subj_path, 'N4-T2.nii.gz')
