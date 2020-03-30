@@ -20,7 +20,7 @@ for subj in os.listdir(NIFTI_PATH):
 # First, perform N4 bias correction. Not required, but may improve results. Also must track new names
         new_file = os.path.join (subj_path, 'N4-' + ser)
         def N4(): 
-            print("N4 bias correction runs.")
+            print("N4 bias correction runs on", nii_file)
         inputImage = sitk.ReadImage(nii_file)
         # maskImage = sitk.ReadImage("06-t1c_mask.nii.gz")
         maskImage = sitk.OtsuThreshold(inputImage,0,1,200)
