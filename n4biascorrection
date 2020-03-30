@@ -1,4 +1,5 @@
-# upload zipped nii files (.nii.gz) as T2.nii.gz 
+# upload zipped nii files (.nii.gz) as T2.nii.gz, each one in its own folder titled S (with number after), all in one folder
+# your directory should be in a folder containing the large folder (the all in one folder which is to be titled NIFTI_PATH)
 
 %pwd 
 
