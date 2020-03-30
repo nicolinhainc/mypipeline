@@ -37,4 +37,10 @@ for subj in os.listdir(NIFTI_PATH):
 
         if __name__=='__main__':
            N4()
+           
+           # below is unchecked
       
+    T2_file =  os.path.join (subj_path, 'N4-T2.nii.gz')
+    new_file = os.path.join (subj_path, 'Reg-T2-N4.nii.gz')
+    cmd = "./flirt -in %s -ref %s  -out %s" % (T2_file, GAD_file, new_file)
+    os.system(cmd)
