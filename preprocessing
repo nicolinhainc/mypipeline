@@ -38,6 +38,9 @@ for subj in os.listdir(NIFTI_PATH):
         if __name__=='__main__':
            N4()
            
+# next download FSL flirt
+!wget --no-check-certificate 'https://drive.google.com/open?id=165SRVxg9aee9sEYsNL4YeY4iPBTsnH8l' -O ./flirt
+
            # below is unchecked
       
     T2_file =  os.path.join (subj_path, 'N4-T2.nii.gz')
