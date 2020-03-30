@@ -1,0 +1,40 @@
+# upload zipped nii files (.nii.gz) as T2.nii.gz 
+
+%pwd 
+
+import os
+import fnmatch
+import SimpleITK as sitk
+
+os.environ['FSLOUTPUTTYPE'] = 'NIFTI_GZ' # not sure if needed
+
+NIFTI_PATH = './prep'
+
+# below is almost perfect but it will say it is working on the same file when really it works on all of them
+
+for subj in os.listdir(NIFTI_PATH):
+    subj_path = os.path.join(NIFTI_PATH, subj)
+    series = fnmatch.filter(os.listdir(subj_path), '*.nii.gz')
+    for ser in series:
+        nii_file = os.path.join (subj_path, ser)
+# First, perform N4 bias correction. Not required, but may improve results. Also must track new names
+        new_file = os.path.join (subj_path, 'N4-' + ser)
+        def N4(): #this worked doing one at a time
+            print("N4 bias correction runs.")
+        inputImage = sitk.ReadImage(nii_file)
+        # maskImage = sitk.ReadImage("06-t1c_mask.nii.gz")
+        maskImage = sitk.OtsuThreshold(inputImage,0,1,200)
+        sitk.WriteImage(maskImage, nii_file)
+
+        inputImage = sitk.Cast(inputImage,sitk.sitkFloat32)
+
+        corrector = sitk.N4BiasFieldCorrectionImageFilter();
+
+        output = corrector.Execute(inputImage,maskImage)
+        sitk.WriteImage(output,new_file)
+        
+
+        if __name__=='__main__':
+           N4()
+        os.system(cmd)
+        print (cmd)
