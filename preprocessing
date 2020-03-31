@@ -47,7 +47,7 @@ from nipype.interfaces import ants
 # the 152 Linear ICBM Average Brain (ICBM152) Stereotaxic Registration Model is downloaded from http://nist.mni.mcgill.ca/?p=798
 !wget --no-check-certificate 'https://drive.google.com/file/d/1wvwQmvDthTha7X_CkmI1oB7qcB300Fi4/view?usp=sharing' -O ./icbm152
 
-
+# the nypipe documentation https://nipype.readthedocs.io/en/1.1.7/interfaces/generated/interfaces.ants/registration.html
            # below is unchecked
       
     T2_file =  os.path.join (subj_path, 'N4-T2.nii.gz')
