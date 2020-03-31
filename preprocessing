@@ -39,7 +39,7 @@ for subj in os.listdir(NIFTI_PATH):
            N4()
            
 # image registration
-
+! pip install nipype[all]
 from nipype.interfaces import ants           
 # next download FSL flirt, in this case from my google drive 
 !wget --no-check-certificate 'https://drive.google.com/open?id=165SRVxg9aee9sEYsNL4YeY4iPBTsnH8l' -O ./flirt
