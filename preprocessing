@@ -5,6 +5,7 @@
 
 import os
 import fnmatch
+! pip install SimpleITK
 import SimpleITK as sitk
 
 os.environ['FSLOUTPUTTYPE'] = 'NIFTI_GZ' # not sure if needed
